@@ -5,10 +5,13 @@ import { getTodo, addTodo } from "../store/slices/todo";
 // components
 import TodoItem from "./todolist/TodoItem";
 
+// constants
+import { KeyboardKey } from "../constants";
+
 const TodoList = () => {
-  const dispatch = useAppDispatch();
-  const list = useAppSelector((state) => state.todo.list);
   const [title, setTitle] = useState("");
+  const list = useAppSelector((state) => state.todo.list);
+  const dispatch = useAppDispatch();
 
   const onSubmit = () => {
     if (title.trim().length < 1) return;
@@ -35,6 +38,9 @@ const TodoList = () => {
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
+          onKeyPress={(event) =>
+            event.key === KeyboardKey.enter ? onSubmit() : {}
+          }
         />
         <button onClick={onSubmit}>Submit</button>
       </div>

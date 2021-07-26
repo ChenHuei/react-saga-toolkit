@@ -2,7 +2,7 @@ import { put, takeLatest } from "redux-saga/effects";
 import { increase, increaseAsync } from "../../slices/counter";
 import { delay } from "../../../utils";
 
-export function* incrementAsync() {
+function* incrementAsync() {
   yield delay(1000);
   yield put(increase());
 }
