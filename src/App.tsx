@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <Router>
-        <div>
-          <Navbar />
+        <Navbar />
+        <main style={{ padding: "0 20px" }}>
           <Switch>
             <Route path="/counter">
               <Counter />
@@ -19,7 +19,7 @@ function App() {
               <TodoList />
             </Route>
           </Switch>
-        </div>
+        </main>
       </Router>
     </>
   );

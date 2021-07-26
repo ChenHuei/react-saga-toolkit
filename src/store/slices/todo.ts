@@ -16,15 +16,16 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<Todo | Todo[]>) => {
-      return Array.isArray(action.payload)
-        ? { list: action.payload }
-        : { list: [...state.list, action.payload] };
+    addTodo: (state, action: PayloadAction<Todo>) => {
+      return { list: [...state.list, action.payload] };
+    },
+    setTodo: (state, action: PayloadAction<Todo[]>) => {
+      return { list: action.payload };
     },
     getTodo: () => {},
   },
 });
 
-export const { addTodo, getTodo } = todoSlice.actions;
+export const { addTodo, setTodo, getTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
