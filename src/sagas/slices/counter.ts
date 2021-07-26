@@ -1,6 +1,6 @@
 import { put, takeLatest } from "redux-saga/effects";
-import { increase, increaseAsync } from "../../slices/counter";
-import { delay } from "../../../utils";
+import { increase, increaseAsync } from "../../store/slices/counter";
+import { delay } from "../../utils";
 
 function* incrementAsync() {
   yield delay(1000);

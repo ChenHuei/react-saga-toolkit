@@ -1,6 +1,6 @@
 import { put, takeLatest } from "redux-saga/effects";
-import { setTodo, getTodo } from "../../slices/todo";
-import { delay } from "../../../utils";
+import { setTodo, getTodo } from "../../store/slices/todo";
+import { delay } from "../../utils";
 
 function* getTodoAPI() {
   yield delay(500);

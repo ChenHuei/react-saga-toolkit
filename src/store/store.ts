@@ -6,7 +6,7 @@ import todoReducer from "./slices/todo";
 import counterReducer from "./slices/counter";
 
 // sagas
-import rootSaga from "./sagas";
+import rootSaga from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
