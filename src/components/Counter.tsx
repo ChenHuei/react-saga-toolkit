@@ -10,11 +10,10 @@ const Counter = (props: CounterProps) => {
 
   return (
     <div>
-      <button onClick={onIncrementAsync}>Increment after 1 second</button>
+      <div style={{ marginBottom: "8px" }}>Clicked: {value} times</div>
       <button onClick={onIncrement}>Increment</button>{" "}
-      <button onClick={onDecrement}>Decrement</button>
-      <hr />
-      <div>Clicked: {value} times</div>
+      <button onClick={onDecrement}>Decrement</button>{" "}
+      <button onClick={onIncrementAsync}>Increment after 1 second</button>
     </div>
   );
 };

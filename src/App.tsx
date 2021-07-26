@@ -1,45 +1,25 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import Counter from "./components/Counter";
+import Navbar from "./components/Navbar";
 import { increase, decrease, increaseAsync } from "./store/slices/counter";
 
 function App() {
   const dispatch = useAppDispatch();
-  const value = useAppSelector((state) => state.counter);
-
-  const onIncrement = (): void => {
-    dispatch(increase());
-  };
-
-  const onDecrement = (): void => {
-    dispatch(decrease());
-  };
-
-  const onIncrementAsync = (): void => {
-    dispatch(increaseAsync());
-  };
+  const counter = useAppSelector((state) => state.counter);
 
   return (
     <>
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">TodoList</Link>
-              </li>
-              <li>
-                <Link to="/counter">Counter</Link>
-              </li>
-            </ul>
-          </nav>
+          <Navbar />
           <Switch>
             <Route path="/counter">
               <Counter
-                value={value}
-                onIncrement={onIncrement}
-                onDecrement={onDecrement}
-                onIncrementAsync={onIncrementAsync}
+                value={counter}
+                onIncrement={() => dispatch(increase())}
+                onDecrement={() => dispatch(decrease())}
+                onIncrementAsync={() => dispatch(increaseAsync())}
               />
             </Route>
             <Route path="/">
