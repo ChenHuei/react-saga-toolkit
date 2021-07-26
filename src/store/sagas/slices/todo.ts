@@ -7,11 +7,13 @@ export function* getTodoAPI() {
   yield put(
     setTodo([
       {
-        title: "1",
+        id: 1,
+        title: "title 1",
         done: false,
       },
       {
-        title: "2",
+        id: 2,
+        title: "title 2",
         done: true,
       },
     ])

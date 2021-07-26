@@ -4,6 +4,7 @@ export interface TodoState {
   list: Todo[];
 }
 export interface Todo {
+  id: number;
   title: string;
   done: boolean;
 }
@@ -22,10 +23,18 @@ export const todoSlice = createSlice({
     setTodo: (state, action: PayloadAction<Todo[]>) => {
       return { list: action.payload };
     },
+    putTodo: (state, action: PayloadAction<Todo>) => {
+      state.list.splice(
+        state.list.findIndex((item) => item.id === action.payload.id),
+        1,
+        action.payload
+      );
+      return state;
+    },
     getTodo: () => {},
   },
 });
 
-export const { addTodo, setTodo, getTodo } = todoSlice.actions;
+export const { addTodo, setTodo, putTodo, getTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
