@@ -1,13 +1,11 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "./hooks";
-import Counter from "./components/Counter";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// components
 import Navbar from "./components/Navbar";
-import { increase, decrease, increaseAsync } from "./store/slices/counter";
+import Counter from "./components/Counter";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const dispatch = useAppDispatch();
-  const counter = useAppSelector((state) => state.counter);
-
   return (
     <>
       <Router>
@@ -15,15 +13,10 @@ function App() {
           <Navbar />
           <Switch>
             <Route path="/counter">
-              <Counter
-                value={counter}
-                onIncrement={() => dispatch(increase())}
-                onDecrement={() => dispatch(decrease())}
-                onIncrementAsync={() => dispatch(increaseAsync())}
-              />
+              <Counter />
             </Route>
             <Route path="/">
-              <p>todoList</p>
+              <TodoList />
             </Route>
           </Switch>
         </div>
